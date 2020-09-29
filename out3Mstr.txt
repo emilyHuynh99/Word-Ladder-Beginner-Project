@@ -1,0 +1,86 @@
+CS 202 Word Ladder Program.
+
+--------------------
+Enter First Word: Error, first word is not in dictionary.
+Enter First Word: Error, first word is not in dictionary.
+Enter First Word: Error, first word is not in dictionary.
+Enter First Word: Error, first word is not in dictionary.
+Enter First Word: Error, first word is not in dictionary.
+Enter First Word: Enter Second Word: 
+Word Ladder: 
+train
+brain
+braid
+brand
+brans
+beans
+beads
+bends
+bands
+banes
+bakes
+bikes
+--------------------
+Enter First Word: Enter Second Word: 
+There is no path from mumbo to ghost
+
+--------------------
+Enter First Word: Enter Second Word: 
+Word Ladder: 
+babes
+banes
+wanes
+wants
+waits
+whits
+white
+while
+chile
+child
+--------------------
+Enter First Word: Enter Second Word: 
+There is no path from atlas to zebra
+
+--------------------
+Enter First Word: Enter Second Word: 
+Word Ladder: 
+smart
+start
+stars
+soars
+soaks
+socks
+cocks
+conks
+cones
+coney
+money
+--------------------
+Enter First Word: Enter Second Word: 
+Word Ladder: 
+money
+coney
+cones
+conks
+cocks
+socks
+soaks
+soars
+stars
+start
+smart
+--------------------
+Enter First Word: Enter Second Word: 
+Word Ladder: 
+money
+coney
+covey
+cover
+coyer
+foyer
+fryer
+freer
+freed
+greed
+--------------------
+Enter First Word: 

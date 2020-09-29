@@ -1,0 +1,22 @@
+CS 202 Word Ladder Program.
+
+--------------------
+Enter First Word: Enter Second Word: 
+Word Ladder: 
+stone
+shone
+shine
+chine
+chins
+coins
+corns
+cores
+cones
+coney
+money
+--------------------
+Enter First Word: Enter Second Word: 
+There is no path from angel to devil
+
+--------------------
+Enter First Word: 

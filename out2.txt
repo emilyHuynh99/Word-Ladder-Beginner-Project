@@ -1,0 +1,26 @@
+CS 202 Word Ladder Program.
+
+--------------------
+Enter First Word: Enter Second Word: 
+Word Ladder: 
+dears
+fears
+--------------------
+Enter First Word: Enter Second Word: 
+Word Ladder: 
+fears
+dears
+--------------------
+Enter First Word: Enter Second Word: 
+Word Ladder: 
+chase
+cease
+pease
+peace
+peach
+perch
+parch
+patch
+catch
+--------------------
+Enter First Word: 

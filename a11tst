@@ -1,0 +1,177 @@
+#!/bin/bash
+# CS 202, final project test script.
+
+# ---------------------------------------------------------
+# Initial checks.
+#	Ensure executable file exists.
+
+if [ -z $1 ]; then
+	echo "Error, must provide executable file name."
+	exit
+fi
+
+if [ ! -e $1 ] || [ ! -x $1 ]; then
+	echo "Error, unable to find $1 executable file."
+	exit
+fi
+
+# ---------------------------------------------------------
+# Define script variables and function
+
+bolded=`tput bold`
+normal=`tput sgr0`
+underline=`tput smul`
+red=`tput setaf 1`
+green=`tput setaf 2`
+white=`tput setaf 7`
+italic=`tput sitm`
+
+pause() {
+	if [ "$1" = "skip" ]; then
+		echo
+	else
+		echo
+		echo -n "Press return to continue"
+		read
+		clear
+	fi
+}
+
+# ---------------------------------------------------------
+# Display initial page
+
+clear
+echo
+echo
+echo ${bolded}Assignment 14 - Error Testing Utility${normal}
+echo
+echo
+echo
+echo "Various tests should generate appropriate error messages."
+echo
+echo
+echo "Note, this utility assumes the program is working or very"
+echo "      close to working.  Testing on an incomplete"
+echo "      program will not be useful."
+echo
+echo
+echo "Some tests will take a while..."
+echo
+echo
+pause $2
+
+# ---------------------------------------------------------
+#  Test for basic data structures.
+
+echo "**********************************************************************"
+echo ${bolded}Test basic data structures${normal}
+echo
+echo
+valgrind ./testLLists > testOut.txt
+
+if `diff -b -B testOut.txt testMstr.txt >/dev/null` ; then
+	echo "${bolded}Link List Testnig Program Output ${green}Successful${normal}"
+else
+	diff -b -B testOut.txt testMstr.txt
+	echo "${bolded}Link List Testnig Program Output ${red}Fail${normal}"
+fi
+echo
+echo
+pause $2
+
+# ---------------------------------------------------------
+#  Begin tests.
+#  First test
+
+echo "**********************************************************************"
+echo "${bolded}Test 1${normal}"
+echo
+valgrind ./$1 -w words.dat > out1.txt << EOF
+stone
+money
+angel
+devil
+
+EOF
+echo
+echo
+if `diff -b -B out1.txt out1Mstr.txt >/dev/null` ; then
+	echo "${bolded}Test #1 Program Output ${green}Successful${normal}"
+else
+	diff -b -B out1.txt out1Mstr.txt
+	echo "${bolded}Test #1 Program Output ${red}Fail${normal}"
+fi
+
+echo
+echo
+pause $2
+
+# ---------------------------------
+#  Next test set
+
+echo "**********************************************************************"
+echo "${bolded}Test 2${normal}"
+echo
+valgrind ./$1 -w words.dat > out2.txt << EOF
+dears
+fears
+fears
+dears
+chase
+catch
+
+EOF
+echo
+echo
+if `diff -b -B out2.txt out2Mstr.txt >/dev/null` ; then
+	echo "${bolded}Test #2 Program Output ${green}Successful${normal}"
+else
+	diff -b -B out2.txt out2Mstr.txt
+	echo "${bolded}Test #2 Program Output ${red}Fail${normal}"
+fi
+
+echo
+echo
+pause $2
+
+# ---------------------------------
+#  Next test set
+
+echo
+echo "**********************************************************************"
+echo "${bolded}Test 3 (longer testing, be patient...)${normal}"
+echo
+valgrind ./$1 -w words.dat > out3.txt << EOF
+none
+lots
+really
+no
+undefined
+train
+bikes
+mumbo
+ghost
+babes
+child
+atlas
+zebra
+smart
+money
+money
+smart
+money
+greed
+
+EOF
+echo
+echo
+if `diff -b -B out3.txt out3Mstr.txt >/dev/null` ; then
+	echo "${bolded}Test #3 Program Output ${green}Successful${normal}"
+else
+	diff -b -B out3.txt out3Mstr.txt
+	echo "${bolded}Test #3 Program Output ${red}Fail${normal}"
+fi
+
+echo
+echo
+
